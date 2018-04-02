@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+</head>
+
+<body>
+    <input id="ipt" type="text" v-model="iptVal" v-focus/>
+</body>
+<script>
+    Vue.directive('focus', {
+        update: function (el) {
+            el.onkeypress = function (e) {
+                var code = e.charCode;
+                if (code != 0) {
+                    if (!String.fromCharCode(code).match(/[0-9\.]/)) {
+                        return false;
+                    }
+                }
+            }
+            el.addEventListener('textInput', function (e) {
+                e.target.value = e.target.value.replace(/[^0-9\.]/g, '')
+            })
+            el.onkeyup = function (e) {
+                e.target.value = e.target.value.replace(/[^0-9\.]/g, '')
+            }
+        }
+    })
+    var qwe = new Vue({
+        el: '#ipt',
+        data() {
+            return {
+                iptVal: ''
+            }
+        },
+        watch:{
+            iptVal(val){
+                console.log(val)
+            }
+        }
+    })
+</script>
+
+</html>
