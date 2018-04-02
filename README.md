@@ -42,6 +42,7 @@ originalEvent是jquery对原生event属性的封装。“code != 0”这个判�
   
 其实无论是使用哪种方式来限制输入框的输入的类型，都离不开keyup、keypress、keyup和比较少见的textInput四个事件来触发。其中，前三个为各个浏览器共同支持的，而textInput仅有IE9+，Safari和Chrome，这也正式比较常见的浏览器（或其内核）。前三个事件为键盘事件，最后一个为文本事件。其触发的顺序为keydown(按键按下)——>keypress(按键值插入文本)——>textInput(按键值插入文本)——>keyup(按键弹起)。textInput和keypress的发生很相似，但二者还是有区别：任何可以获得焦点的元素都可以触发keypress事件，但只有可编辑区域才能触发textInput事件。textInput事件只会在用户按下能够输入实际字符的键时才会触发，而keypress事件则在按下那些能够影响文本显示的键时也会触发（比如退格键）。  
 在实际的操作中，我们会发现在输入中文的时候，只用按键事件对其进行触发限制输入框的操作体验非常不好。比如上面的代码，只在keypress事件触发限制，当我们输入法切换在中文时，按下字母之后按空格键或者“shift”键，会发现我们的限制失效了。
+![Image text](https://github.com/lunlunshiwo/Images/blob/master/%E4%B8%8D%E5%AE%8C%E7%BE%8E.gif)  
 ## 原生js  
 
 因此为了更好的体验，我们需要更多的事件触发限制，达到我们的目的。因此，我们应在触发keypress后在对即将插入文本框的值进行一边过滤。就拿上文的条件只能输入数字和小数点来说，我们需要在textIput事件发生时判断一下文本框的value值，使用正则进行一下过滤。代码如下：
@@ -73,6 +74,7 @@ originalEvent是jquery对原生event属性的封装。“code != 0”这个判�
 ```  
   
 利用事件监听把绑定textIput事件，当触发时再对其value过滤一下。结果还是不错的：
+![Image text](https://github.com/lunlunshiwo/Images/blob/master/%E5%87%91%E5%90%88.gif)  
 但是在上文提到过，textInput属性对火狐浏览器无兼容，因此，我们就需要使用keyup对其进行代替（但效果不好）：
 ```
 textbox.onkeyup=function (e) {
