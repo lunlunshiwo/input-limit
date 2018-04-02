@@ -17,7 +17,7 @@ $("input[type='text']").keypress(function (e) {
 
  
 
-|       |谷歌浏览器                                                                                          |火狐浏览器                                                                                                |IE11浏览器                                                                                            |
+||谷歌浏览器|火狐浏览器|IE11浏览器|
 | --------   | -----:   | -----:   | :----: |
 |按键“a”|keydown：keyCode为65，charCode为0;keypress：keyCode为97，charCode为97;keyup：keyCode为65，charCode为0|keydown：keyCode为65，charCode为0;keypress：keyCode为0，charCode为97;keyup：keyCode为65，charCode为0|keydown：keyCode为65，charCode为0;keypress：keyCode为97，charCode为97;keyup：keyCode为65，charCode为0|
 |按键“1”| keydown：keyCode为49，charCode为0;keypress：keyCode为49，charCode为49;keyup：keyCode为49，charCode为0|keydown：keyCode为49，charCode为0;keypress：keyCode为0，charCode为49;keyup：keyCode为49，charCode为0|keydown：keyCode为49，charCode为0;keypress：keyCode为49，charCode为49;keyup：keyCode为49，charCode为0|
