@@ -1,9 +1,4 @@
 # bug的产生和修改  
- | 水果        | 价格    |  数量  |
- | --------   | -----:  | :----: |
- | 香蕉        | $1      |   5    |
- | 苹果        | $1      |   6    |
- | 草莓        | $1      |   7    |
 
 上周临近周末休息的时候，一个同事跑过来了，对我说：“阿伦啊，有一个页面出问题了，火狐浏览器所有的input都没法输入了。”我一听，是不是你给加了什么属性，让input输入框只读了啊。看了一下代码，很正常的一个输入框，并且CSS写的也很正常。
 ```
@@ -22,7 +17,8 @@ $("input[type='text']").keypress(function (e) {
 
  
 
-||谷歌浏览器|火狐浏览器|IE11浏览器|
+|       |谷歌浏览器                                                                                          |火狐浏览器                                                                                                |IE11浏览器                                                                                            |
+| --------   | -----:   | -----:   | :----: |
 |按键“a”|keydown：keyCode为65，charCode为0;keypress：keyCode为97，charCode为97;keyup：keyCode为65，charCode为0|keydown：keyCode为65，charCode为0;keypress：keyCode为0，charCode为97;keyup：keyCode为65，charCode为0|keydown：keyCode为65，charCode为0;keypress：keyCode为97，charCode为97;keyup：keyCode为65，charCode为0|
 |按键“1”| keydown：keyCode为49，charCode为0;keypress：keyCode为49，charCode为49;keyup：keyCode为49，charCode为0|keydown：keyCode为49，charCode为0;keypress：keyCode为0，charCode为49;keyup：keyCode为49，charCode为0|keydown：keyCode为49，charCode为0;keypress：keyCode为49，charCode为49;keyup：keyCode为49，charCode为0|
 |按键“Backspace”|keydown：keyCode为8，charCode为0;keypress未触发;keyup：keyCode为8，charCode为0|keydown：keyCode为8，charCode为0;keypress:keyCode为8，charCode为0;keyup：keyCode为8，charCode为0|keydown：keyCode为8，charCode为0;keypress为触发;keyup：keyCode为8，charCode为0|  
